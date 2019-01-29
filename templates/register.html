@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<body>
+
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+
+
+		<!-- Required tags to make the website responsive-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Add Bootstrap CSS to the page -->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login.css')}}">
+		<h1 style="color: rgb(220, 212, 228), text-align  center" > REGISTRATION </h1>
+
+	</head>
+	<body>
+		
+		<center>
+			<h1 style="background-color: rebeccapurple,  text-align  center" >  </h1>
+			
+			<h1 style="color: rgb(220, 212, 228), text-align  center" ></h1>
+
+</center>
+		<center>
+			
+
+			<div class="register">
+				<center>
+	<br>
+	<h1 style="color:black" > REGISTRATION </h1>
+	<br>
+
+	</center>
+
+				<form  action = "/register" method = "post" style = "color:black">
+					<div>
+						<font color="black"><label>Email Adress</label></font>
+						<br>
+						<input type="email" class="form-control" name="email" placeholder="Enter email">
+					<div>
+						<br>
+						<font color="black"><label>User name</label></font>
+						<br>
+						<input type="text" class="form-control"  name="user_name" placeholder="Username">
+					</div>
+					<br>
+					<div>
+						<font color="black"><label>Address</label></font>
+						<br>
+						<input type="text" class="form-control"  name="address" placeholder="address">
+					</div>
+					<br>
+					<div>
+						<font color="black"><label>Phone number</label></font>
+						<br>
+						<input type="text" class="form-control"  name="phone_number" placeholder="phone-number">
+					</div>
+					<br>
+					<div class="form-group">
+						<font color="black"><label>Password</label></font>
+						<br>
+						<input type="password" class="form-control" name="password" placeholder="Password">
+					</div>
+					<br>
+					<div class="form-group">
+						<font color="black"><label>Confirm password</label></font>
+						<br>
+						<input type="password" class="form-control" name="password-confirm" placeholder="Password">
+					</div>
+					<br>
+					<div class="form-group form-check">
+						<input type="checkbox" class="form-check-input" id="exampleCheck1">
+						<label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
+					</div>
+					<button onclick="document.getElementById('id01').style.display='block'"type="submit" class="btn btn-primary registerin registerin1">Register</button>
+
+					<div class="dropdown-divider"></div>
+
+					<a class="dropdown-item" href="{{url_for('login')}}">Already have an account? Log in!</a>
+				</div>
+
+			</form>
+		</center>
+
+</form>
+
+</body>
+</html>

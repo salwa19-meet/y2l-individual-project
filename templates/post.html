@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>book exchange</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+
+	<style>
+	.posts::-webkit-scrollbar {
+		display: none;
+	}
+	.posts{
+		width:100vw;
+		overflow-x:none;
+		position:absolute;
+		left:0%;
+	}
+	#post{
+	}
+	body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.dropbtn {
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+</style>
+
+</head>
+<body>
+
+    <br>
+    <br>
+    
+    <br>
+    <center>
+        <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   <a  href="{{ url_for('us') }}"><i class='fas fa-users' style='font-size:24px;color: red'></i>About Us</a>
+
+  <br>
+  <a  href="{{ url_for('post') }}"><i class="fa fa-fw fa-envelope" style='font-size:24px;color: red' ></i>Add a Post</a>
+  <br>
+  <br>
+  <a  href="{{ url_for('home') }}"><i class="fa fa-fw fa-home" style='font-size:24px;color: red'></i>Home Page</a>
+  <br>
+  <br>
+  <div class="dropdown">
+  <a class="dropbtn"><i class="fa fa-list"  style='font-size:24px;color: red'></i>Book List</a>
+
+
+  <div class="dropdown-content">
+    <a href="{{ url_for('science') }}">Science fiction</a>
+    <br>
+    <a href="{{ url_for('fantasy') }}">Fantasy</a>
+    <br>
+    <a href="{{ url_for('adventure') }}">Adventure</a>
+    <br>
+    <a href="{{ url_for('mystery') }}">Mystery</a>
+    <br>
+    <a href="{{ url_for('drama') }}">Drama</a>
+    <br>
+    <a href="{{ url_for('comedy') }}">Comedy</a>
+
+  </div>
+</div>
+<br>
+<br>
+  <a  href="{{ url_for('profile') }}"><i style='font-size:24px;color:red' class='fas'>&#xf2c2;</i>
+Hello {{user_name}}</a>
+
+</div>
+
+<div id="main">
+  
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+</center>
+
+	<center>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<div>
+		<div class="justify-center">
+
+			<div class="reporting" style="width: 27%; height: 100%; margin-top: -150px">
+<h1 style="text-align: center; font-family: comfortaa; font-size: 48px;     text-shadow: 2px 2px 4px #000000;">Post Your Book</h1>
+<h3 style="text-align: center; font-family: comfortaa; font-size: 20px;     text-shadow: 2px 2px 4px #000000; padding: 10px; "> Hi {{user_name}}, share your Book With Us. And Don't Forget the feedback ;).</h3>
+<br>
+			<form action = "/post" method = "post">
+					<textarea id="message" class="form-control" name="message" placeholder="Enter your post here" aria-label="Recipient's username" aria-describedby="button-addon2" style = "width: 500px; "></textarea>
+ 					<br>
+ <br>
+
+					<input type="text" class="form-control"  name="image" placeholder="Post image link" aria-label="Recipient's username" aria-describedby="button-addon2" style = "width: 500px;">
+					<br>
+<br>
+<div class="dropdown">
+  <button class="dropbtn">Post</button>
+  <div class="dropdown-content">
+    <br>
+    <button href="{{ url_for('adventure') }}"  type="submit" >Post in adventure</button>
+    <br>
+    <button href="{{ url_for('mystery') }}"  type="submit" >Post in mystery</button>
+    <br>
+    <button href="{{ url_for('drama') }}"  type="submit" >Post in Drama</button>
+    <br>
+    <button href="{{ url_for('comedy') }}"  type="submit" >Post in Comedy</button>
+    <br>
+    <button href="{{ url_for('science') }}"  type="submit" >Post in Science fiction</button>
+    <br>
+    <button href="{{ url_for('fantasy') }}"  type="submit" >Post in Fantasy</button>
+    <br>
+  </div>
+</div>
+
+			</form>
+			</div>
+			
+
+
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	</center>
+</body>
+</html>
+
+
+

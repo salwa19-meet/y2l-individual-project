@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login.css')}}">
+
+
+
+	<title>login page </title>
+</head>
+<body>
+<div class = "login_page_title">
+	<center>
+	<br>
+	<h1 style="color:rgb(220, 212, 228)" > login here to start using Book EXchange. </h1>
+
+	</center>
+
+</div>
+<center> 
+	<br>
+	<br>
+	<br>
+
+	
+<div class="loginform">
+
+
+	<form action = "/" method = "post">
+		<div class="form-group">
+			<font color="black"><label>User name</label></font>
+			<br>
+			<br>
+			<input type="text" class="form-control"  name="user_name" placeholder="Username">
+		</div>
+		<br>
+		<div class="form-group">
+			<font color="black"><label>Password</label></font>
+			<br>
+			<br>
+			<input type="password" class="form-control" name="password" placeholder="Password">
+		</div>
+		<br>
+		<button type="submit" class="btn btn-primary registerin registerin1"><i style='font-size:24px' class='fas'>&#xf52b;</i></button>
+
+	</form>
+	<br>
+
+	<div class="dropdown-divider"></div>
+	<br>
+	<a class="dropdown-item" href="{{url_for('register')}}">New around here? Sign up!</a>
+	<br>
+</div>
+</center>
+
+
+</body>
+</html>
