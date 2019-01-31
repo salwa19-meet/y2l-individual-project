@@ -143,7 +143,7 @@ def post():
 @app.route('/profile')
 def profile():
      if request.method == 'GET':
-        return render_template('profile.html' , posts = get_all_msgs(),  myfunction = get_user_by_id ,user_name= login_session["username"])
+        return render_template('profile.html' , posts = get_all_msgs(),user_name=login_session["username"]  ,myfunction = get_user_by_id )
 
 @app.route('/us', methods = ['GET','POST'])
 def us():
@@ -205,12 +205,6 @@ def drama():
 def comedy():
     if request.method == 'GET':
         return render_template('comedy.html',posts = get_all_msgs() , user_name= login_session["username"] ,myfunction = get_user_by_id)
-
-
-
-
-
-
 
 
 

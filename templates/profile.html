@@ -172,7 +172,7 @@ body {
 <br>
 <br>
   <a  href="{{ url_for('profile') }}"><i style='font-size:24px;color:red' class='fas'>&#xf2c2;</i>
-Hello {{username}}</a>
+Hello {{user_name}}</a>
 </div>
 <br>
 <br>
@@ -183,7 +183,7 @@ Hello {{username}}</a>
 <div class = "profile">
 
 	<h1 style="text-align: center; font-family: comfortaa; font-size: 48px; color:white; text-shadow: 2px 2px 4px #000000;"
-	> {{username}}, Welcome to your profile page. </h1>
+	> {{user_name}}, Welcome to your profile page. </h1>
 	<h2  style="text-align: center; font-family: comfortaa; font-size: 35px; color:white; text-shadow: 2px 2px 4px #000000;">Your posts </h2>
 </div>
 </center>
@@ -224,7 +224,7 @@ function closeNav() {
     <img src="{{url_for('static', filename = 'jql-profiles.png')}}" alt="profile"  style="width:300px;height:300px;">
     </div>
     <div class="flip-card-back">
-      <h1>{{username}}</h1> 
+      <h1>{{user_name}}</h1> 
       <br>
       <p>{{address}}</p> 
       <br>
